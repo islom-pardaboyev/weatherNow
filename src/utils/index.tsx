@@ -1,8 +1,3 @@
-import Sun from "../assets/images/sun.png";
-import Cloud from "../assets/images/cloud.png";
-import Rain from "../assets/images/rain.png";
-import Thunderstorm from "../assets/images/thunderstorm.png";
-import Snow from '../assets/images/snow.jfif'
 export type CountryWeatherData = {
   coord: {
     lon: number;
