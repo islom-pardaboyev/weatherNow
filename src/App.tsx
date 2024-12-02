@@ -16,7 +16,6 @@ import {
   Thermometer,
   Tornado,
 } from "lucide-react";
-import MapComponents from "./components/MapComponents";
 import MapComponent from "./components/MapComponents";
 
 ring2.register();
