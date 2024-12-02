@@ -2,6 +2,7 @@ import Sun from "../assets/images/sun.png";
 import Cloud from "../assets/images/cloud.png";
 import Rain from "../assets/images/rain.png";
 import Thunderstorm from "../assets/images/thunderstorm.png";
+import Snow from '../assets/images/snow.jfif'
 export type CountryWeatherData = {
   coord: {
     lon: number;
@@ -35,6 +36,12 @@ export type CountryWeatherData = {
   clouds: {
     all: number;
   };
+  snow?: {
+    "1h": number
+  }
+  rain?: {
+    "1h": number
+  }
   dt: number;
   sys: {
     country: string;
@@ -46,21 +53,3 @@ export type CountryWeatherData = {
   name: string;
   cod: number;
 };
-
-export const weatherTypes: Record<string, string> = {
-    Clear: Sun,
-    Clouds: Cloud,
-    Rain: Rain,
-    Drizzle: Rain,
-    Thunderstorm: Thunderstorm,
-    Snow: "",
-    Mist: "",
-    Smoke: "",
-    Haze: "",
-    Dust: "",
-    Fog: "",
-    Sand: "",
-    Ash: "",
-    Squall: "",
-    Tornado: "",
-  };

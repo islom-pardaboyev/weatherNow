@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.test {
-  background: linear-gradient(to top, #2c5364, #203a43, #0f2027);
+*{
+  font-family: "Parkinsans", sans-serif;
 }
