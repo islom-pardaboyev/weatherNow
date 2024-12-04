@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import { api } from "./api";
+import { cityNameSlice } from "./slice/city-name-slice";
 
 export const store = configureStore({
   reducer: {
     [api.reducerPath]: api.reducer,
+    [cityNameSlice.reducerPath]: cityNameSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(api.middleware),

@@ -7,3 +7,7 @@
 *{
   font-family: "Parkinsans", sans-serif;
 }
+
+nav a.active{
+  @apply !text-white !bg-black transition-all;
+}

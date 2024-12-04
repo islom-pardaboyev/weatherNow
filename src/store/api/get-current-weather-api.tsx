@@ -5,7 +5,7 @@ export const currentWeatherApi = api.injectEndpoints({
     endpoints: (build) => ({
         getCurrentWeather: build.query({
             query: (body) => ({
-                url: `?q=${body}&appid=${API_KEY}`,
+                url: `/weather/?q=${body}&appid=${API_KEY}`,
             })
         })
     })
