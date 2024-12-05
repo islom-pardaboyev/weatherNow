@@ -1,7 +1,9 @@
 import CustomRoutes from "./routes";
 
 function App() {
-  return <CustomRoutes/>;
+  return <section className="w-full h-screen overflow-hidden">
+    <CustomRoutes/>
+  </section>;
 }
 
 export default App;

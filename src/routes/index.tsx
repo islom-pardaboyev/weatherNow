@@ -20,6 +20,7 @@ function CustomRoutes() {
           children: [
             {
               path: "current",
+              index: true,
               element: <CurrentWeatherInfo isLoading={CurrentlyWeatherInfoLoading} data={CurrentlyWeatherInfo} />,
             },
             {

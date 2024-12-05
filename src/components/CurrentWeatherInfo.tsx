@@ -1,63 +1,31 @@
-import { CountryWeatherData } from "../utils";
-import {
-  Cloud,
-  CloudDrizzle,
-  CloudFog,
-  CloudLightning,
-  CloudRainWind,
-  Droplets,
-  Haze,
-  Snowflake,
-  Sun,
-  Thermometer,
-  Tornado,
-} from "lucide-react";
+import { CountryWeatherData, getWeatherIcon, kelvinToCelsius } from "../utils";
+import { Droplets, Thermometer} from "lucide-react";
 import MapComponent from "./MapComponents";
 import { bouncy } from "ldrs";
 
 bouncy.register();
 
-function CurrentWeatherInfo({ data, isLoading }: { data: CountryWeatherData, isLoading:boolean }) {
-  const kelvinToCelsius = (k: number) => (k - 273.15).toFixed(2);
-  const getWeatherIcon = (condition: string) => {
-    switch (condition) {
-      case "Clear":
-        return <Sun className="h-10 w-10 text-yellow-500" />;
-      case "Clouds":
-        return <Cloud className="h-10 w-10 text-gray-500" />;
-      case "Rain":
-        return <CloudRainWind className="h-10 w-10 text-blue-500" />;
-      case "Drizzle":
-        return <CloudDrizzle className="h-10 w-10 text-blue-500" />;
-      case "Thunderstorm":
-        return <CloudLightning className="h-10 w-10 text-yellow-500" />;
-      case "Snow":
-        return <Snowflake className="h-10 w-10 text-blue-500" />;
-      case "Mist":
-        return <CloudFog className="h-10 w-10 text-gray-500" />;
-      case "Haze":
-        return <Haze className="h-10 w-10 text-yellow-500" />;
-      case "Fog":
-        return <CloudFog className="h-10 w-10 text-gray-500" />;
-      case "Tornado":
-        return <Tornado className="h-10 w-10 text-gray-500" />;
-      default:
-        return <Thermometer className="h-10 w-10 text-gray-500" />;
-    }
-  };
+function CurrentWeatherInfo({
+  data,
+  isLoading,
+}: {
+  data: CountryWeatherData;
+  isLoading: boolean;
+}) {
+
   return (
     <div>
       {data && (
         <div className="grid grid-cols-2 gap-x-10 items-start">
           {/* Weather Card */}
           <div className="bg-white col-span-1 rounded-xl p-5">
-            <div className="flex items-center justify-between">
-              <h1 className="font-semibold text-xl mb-3">
+            <div className="flex items-center mb-3 justify-between">
+              <h1 className="font-semibold text-xl ">
                 {data.name}, {data.sys.country}
               </h1>
               <img
-                src={`https://flagsapi.com/${data.sys.country}/flat/64.png`}
-                alt="Country flag"
+                src={`https://flagcdn.com/h60/${data.sys.country.toLocaleLowerCase()}.png`}
+                alt={data.sys.country}
               />
             </div>
             <div className="w-[30vw] h-[40vh] grid grid-cols-2 gap-3">

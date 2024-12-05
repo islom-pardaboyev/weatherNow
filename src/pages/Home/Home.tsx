@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { ring2 } from "ldrs";
 import { useDispatch, useSelector } from "react-redux";
 import { setCityName } from "../../store/slice/city-name-slice";
-import { NavLink, Outlet, useNavigate } from "react-router";
+import { NavLink, Outlet } from "react-router";
 import { NavbarContext } from "../../utils";
 import { RootState } from "../../store";
 ring2.register();
@@ -14,12 +14,10 @@ type FormValues = {
 function Home() {
   const cityName = useSelector((state: RootState) => state.cityName);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { register, handleSubmit, formState } = useForm<FormValues>();
   const { errors } = formState;
   const onSubmit = (data: FormValues) => {
     dispatch(setCityName(data.country_name));
-    navigate(`/current`);
   };
   const navbarContext: NavbarContext[] = [
     {

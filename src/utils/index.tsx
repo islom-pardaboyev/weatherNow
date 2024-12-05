@@ -1,3 +1,5 @@
+import { Cloud, CloudDrizzle, CloudFog, CloudLightning, CloudRainWind, Haze, Snowflake, Sun, Thermometer, Tornado } from "lucide-react";
+
 export type CountryWeatherData = {
   coord: {
     lon: number;
@@ -104,3 +106,36 @@ export type listWeatherForecast = {
   };
   dt_txt: string;
 };
+export const monthNames:string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'uni', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+export const getWeatherIcon = (condition: string) => {
+  switch (condition) {
+    case "Clear":
+      return <Sun className="h-10 w-10 text-yellow-500" />;
+    case "Clouds":
+      return <Cloud className="h-10 w-10 text-gray-500" />;
+    case "Rain":
+      return <CloudRainWind className="h-10 w-10 text-blue-500" />;
+    case "Drizzle":
+      return <CloudDrizzle className="h-10 w-10 text-blue-500" />;
+    case "Thunderstorm":
+      return <CloudLightning className="h-10 w-10 text-yellow-500" />;
+    case "Snow":
+      return <Snowflake className="h-10 w-10 text-blue-500" />;
+    case "Mist":
+      return <CloudFog className="h-10 w-10 text-gray-500" />;
+    case "Haze":
+      return <Haze className="h-10 w-10 text-yellow-500" />;
+    case "Fog":
+      return <CloudFog className="h-10 w-10 text-gray-500" />;
+    case "Tornado":
+      return <Tornado className="h-10 w-10 text-gray-500" />;
+    default:
+      return <Thermometer className="h-10 w-10 text-gray-500" />;
+  }
+};
+export const kelvinToCelsius = (k: number) => (k - 273.15).toFixed(2);
+export const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+export function showForecastDay(dt: number): string {
+  const date = new Date(dt * 1000);
+  return `${dayNames[date.getDay()]}, ${date.getDate()} ${monthNames[date.getMonth()]}`;
+}
