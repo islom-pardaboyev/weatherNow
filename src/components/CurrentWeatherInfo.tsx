@@ -13,6 +13,10 @@ function CurrentWeatherInfo({
   isLoading: boolean;
 }) {
 
+  if(!data){
+    return <p>No data available</p>
+  }
+
   return (
     <div>
       {data && (

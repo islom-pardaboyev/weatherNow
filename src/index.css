@@ -11,3 +11,14 @@
 nav a.active{
   @apply !text-white !bg-black transition-all;
 }
+
+#forecastWeather::-webkit-scrollbar-thumb {
+  border-radius: 10px !important;
+  cursor: pointer;
+  background-color: #34D399 !important;
+}
+
+#forecastWeather::-webkit-scrollbar {
+  height: 7px;
+  background-color: #F8F9FA;
+}
